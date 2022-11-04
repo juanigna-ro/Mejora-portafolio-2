@@ -1,0 +1,70 @@
+Entramos y creamos el entorno virtual para programar la api e interactuar con openkm 
+asi como la creación de una tarea simple con "cron".
+
+para entender la logica de programacion quedara todo comentado de como funciona.
+
+sigue el paso a paso para entrar en el entorno en windows si ya tienes windows solo debes activarlo.
+
+entramos a la carpeta principal del entorno y lo creamos.
+(ruta de ejemplo)
+-C:\Users\juan_\OneDrive\Escritorio\Djangotranscriptor
+-pip install virtualenv
+-virtualenv --version
+	creamos la carpeta del entorno
+-virtualenv venv
+-.\venv\Scripts\activate
+	ahora esta activo el entorno
+
+cargamos la carpeta completa en VScode 
+-f1
+-select interpreter
+-"seleccionamos la recomendación del editor, que es el proyecto"
+
+instalaremos django en el proyecto.
+-pip install django
+-django-admin --version
+-python -m django --version
+
+crearemos un proyecto principal "transcriptor"
+-django-admin startproject transcriptor .
+
+instalamos la version de django y restframework que corresponda
+-pip install -r requirements.txt
+
+asi iniciamos el proyecto y se crea de manera automativa la bd.sqllite
+-python manage.py runserver
+
+ahora crearemos la app con la cual integraremos aws-cron-openkm-gestionusuarios
+-python manage.py startapp API
+
+con la api de openkm llamaremos a la funcion y le asignaremos una tarea usando cron 
+necesario instalar libreria request para openkm 
+-pip install requests
+
+ahora instalaremos django-crontab para el proceso automatico
+-pip install django-crontab
+
+se creo un archivo cron.py al igual que openKM.py para usarlos como objetos propiamente tal.
+una vez creada la funcion de descarga de openkm procedemos a agregar la tarea cron
+-python manage.py crontab add
+
+
+para crear los modelos en la BD de esta app django usaremos los sgtes codigos para migrarla.
+-python manage.py makemigrations
+-python manage.py migrate
+
+en ese orden se migraran las tablas de la BD local
+
+para interactuar con esas tablas usaremos la shell que nos ofrece python
+-python manage.py shell
+
+codigo de consultas e insert
+-from API.models import Project, Task 
+-p = Project(name="aplicacion web") 
+-p.save()
+-Project.objects.all()
+-Project.objects.get(id=1)
+-Project.objects.get.(name="aplicacion web)
+para guardar tareas
+-P.task_set.all()
+-P.task_set.create(title="descargar IDE")
