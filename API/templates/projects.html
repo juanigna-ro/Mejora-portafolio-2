@@ -1,0 +1,16 @@
+ {% extends 'base.html' %} {% block content %}
+<h1>Proyectos</h1>
+{% for p in projects %}
+
+<div>
+    {# este es un ejemplo de pagina web usando django #}
+    <h3>
+        {% if p.done == False %} ⌚ {% else %} ✅Hecho {% endif%} {{ p.name }}
+    </h3>
+
+    <button>
+        ✅Hecho
+    </button>
+</div>
+
+{% endfor %} {% endblock%}

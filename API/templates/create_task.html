@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content%}
+<h1>crear nueva tarea</h1>
+
+<form action="POST">
+    {{form.as_p}}
+    <button>
+        Guardar
+    </button>
+</form>
+
+
+
+{% endblock %}
