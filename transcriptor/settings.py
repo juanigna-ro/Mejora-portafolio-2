@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_crontab',
     'API'
 ]
 
@@ -126,6 +125,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #En este apartado le asignamos el tiempo de ejecucion de la tarea cron.
 #es a modo de ejemplo puesto que esta es un proyesto de mejor apersonal para entender las api's 
-CRONJOBS = [
-    ('* 3 * * *', 'API.cron.opkm'),
-]
