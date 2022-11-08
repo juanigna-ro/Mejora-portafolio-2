@@ -8,6 +8,13 @@ from .forms import createnewtask
 #de prueba
 # {% extends 'base.html' %}
 
+
+def iniciomatch(request):
+    bienvenidoamatch= 'somos match'
+    return render(request, 'matchprincipal.html',{
+        'matchprincipal': bienvenidoamatch
+    })
+
 def hola(request):
     return HttpResponse("hola chavales")
 def index(request):
