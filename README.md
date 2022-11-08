@@ -1,5 +1,6 @@
 # Mejora-portafolio-2
 se desarrollo una api basica con el fin de mejorarla en la ultima entrega.
+
 se debe tener en cuenta que antes de clonar y utilizar debes crearle entorno venv a la app de lo contrario 
 presentara error de 'crontab' , aunque esta funcion se removera ya que es una funcionalidad de prueba y no la mejora final
 y esta demás decir que 'crontab' presenta error ya que no es compatible con windows.
