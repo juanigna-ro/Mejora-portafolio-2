@@ -1,4 +1,3 @@
-
 from email.policy import default
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
@@ -46,14 +45,14 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     def get_short_name(self):
         return self.name
     #retorn cadena representando a nuestro usuario
-    def __str__(self) :
+    def __str__(self):
         return self.email
 
 
 #esta tarjeta estara asociada a un usuario 'regular' no un superuser
 class Tarjeta(models.Model):
-    nrotarjeta=models.PositiveIntegerField(max_length=16)
-    cvv=models.PositiveIntegerField(max_length=3)
+    nrotarjeta=models.PositiveIntegerField()
+    cvv=models.PositiveIntegerField()
     usuario = models.ForeignKey(UserProfile,on_delete=models.CASCADE)
     #funcion tarjet
     def creartarjet(self):
@@ -76,7 +75,6 @@ class Project(models.Model):
     
     def __str__(self) -> str:
         return self.name
-
 
 class Task(models.Model):
     title = models.CharField(max_length=100)
